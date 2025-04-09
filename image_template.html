@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="gallery.css">
+  <script src="gallery.js"></script>
+</head>
+<body>
+
+<!-- Embed image data here -->
+<div id="image-slides" style="display: none;">
+  <div data-src="https://m.media-amazon.com/images/I/81eNCUI1PtL._AC_SL1500_.jpg" data-alt="Dyson Vacuum Cleaner V8 Model" data-caption="PHOTO: Caption for image 1"></div>
+  <div data-src="https://m.media-amazon.com/images/I/71kendGazoL._AC_SL1500_.jpg" data-alt="Dyson car" data-caption="PHOTO: Caption for image 2"></div>
+  <div data-src="https://example.com/image3.jpg" data-alt="Dyson Vacuum Attachments" data-caption="PHOTO: Caption for image 3"></div>
+  <div data-src="https://m.media-amazon.com/images/I/71kendGazoL._AC_SL1500_.jpg" data-alt="Dyson car" data-caption="PHOTO: Caption for image 2"></div>
+
+</div>
+
+<div class="gallery-container">
+  <div class="main-image-container">
+    <img id="mainImage" class="main-image" src="" alt="Gallery Image" onclick="openConstrainedLightbox()">
+    <button class="nav-button prev" onclick="changeImage(-1)">&#10094;</button>
+    <button class="nav-button next" onclick="changeImage(1)">&#10095;</button>
+  </div>
+
+  <div class="caption" id="imageCaption"></div>
+
+  <div class="thumbnails" id="thumbnailsContainer"></div>
+</div>
+
+<!-- Lightbox -->
+<div id="constrained-lightbox">
+  <span id="constrained-lightbox-close" onclick="closeConstrainedLightbox()">&times;</span>
+  <div id="constrained-lightbox-content">
+    <img id="constrained-lightbox-image" src="" alt="Lightbox Image">
+    <div id="constrained-lightbox-caption"></div>
+  </div>
+  <div class="constrained-lightbox-nav">
+    <button class="constrained-lightbox-nav-button" onclick="constrainedLightboxChangeImage(-1); event.stopPropagation()">&#10094;</button>
+    <button class="constrained-lightbox-nav-button" onclick="constrainedLightboxChangeImage(1); event.stopPropagation()">&#10095;</button>
+  </div>
+</div>
+
+</body>
+</html>
