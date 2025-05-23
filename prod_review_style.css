@@ -30,47 +30,81 @@ body {
     max-width: 1000px;
     border-radius: 10px;
     overflow: hidden;
+    margin: 30px auto;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.review-card {
+    max-width: 1000px;
+    border-radius: 10px;
+    overflow: hidden;
     margin: 10px auto;
     background-color: white;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .review-header {
-    margin: 10px;
-    background-color: #f1f3f3;
-    color: var(--text-dark);
-    position: relative; /* Add this for positioning context */
+    margin:20px;
+    background-color: #ffffff;
+    padding: 10px; /* Add padding for better spacing */
+    position: relative;
+    box-shadow: 0 12px 18px rgba(19, 146, 32, 0.336); /* Soft shadow */
 }
 
 .review-best {
-    text-align: left;
     display: inline-block;
-    font-size: 19px;
+    font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 1.1px;
-    background-color: rgb(201, 98, 2);
+    background-color: rgb(48, 124, 13);
     color: white;
-    padding: 6px 12px;
+    padding: 4px 10px;
     border-radius: 8px;
-    position: relative; /* Add this for z-index layering */
-    z-index: 2; /* Ensure badge stays on top */
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 2px; /* Minimal space between badge and title */
 }
 
 .review-title {
-    margin: 0px 0;
-    font-size: 1.8em;
+    margin: 0;
+    font-size: 1.4em;
     font-weight: 600;
-    padding-bottom: 5px;
     text-align: center;
-    line-height: 1.0;
-    color: #0c0fb4;
+    line-height: 1.2;
+    color: #1b1eb1;
     letter-spacing: -0.5px;
-    position: absolute; /* Position absolutely */
-    top: 50%; /* Start from middle of container */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust to true center */
-    width: 100%; /* Full width for centering */
-    z-index: 1; /* Behind the badge */
+    padding-top: 0; /* Remove additional spacing */
+}
+
+/* Responsive adjustments for small devices */
+@media (max-width: 768px) {
+    .review-header {
+        padding: 8px;
+    }
+    
+    .review-best {
+        font-size: 14px;
+        padding: 3px 8px;
+        margin-bottom: 1px; /* Minimal gap on mobile */
+    }
+    
+    .review-title {
+        font-size: 1.2em;
+        padding-top: 0; /* No additional padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .review-best {
+        font-size: 12px;
+        padding: 2px 6px;
+        margin-bottom: 1px; /* Minimal gap on small screens */
+    }
+    
+    .review-title {
+        font-size: 1.1em;
+        padding-top: 0; /* No additional padding */
+    }
 }
 .content-wrapper {
     display: flex;
@@ -217,19 +251,19 @@ body {
     border-left: 5px solid var(--cons-border);
 }
 
-.pros h3, .cons h3 {
+.pros h4, .cons h4 {
     margin: 0 0 10px 0;
-    font-size: 22px;
+    font-size: 1.2em;
     padding-bottom: 12px;
     border-bottom: 2px solid rgba(0,0,0,0.08);
     text-align: center;
 }
 
-.pros h3 {
+.pros h4 {
     color: var(--pros-color);
 }
 
-.cons h3 {
+.cons h4 {
     color: var(--cons-color);
 }
 
