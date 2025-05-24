@@ -263,7 +263,7 @@
 
 
 /* Small-medium screens (up to 720px) */
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   /* Mobile column width settings */
   .PT-preview-col {
     width: 20% !important; /* Preview column - mobile */
@@ -353,7 +353,15 @@
     white-space: normal; /* Allow text to wrap */
     height: auto;
   }
+  .PT-product-comparison-table th {  color: white;
+    padding: 5px 8px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.5px;
 
+    border: none;  
+  }
   /* Ensure rows can expand as needed */
   .PT-product-comparison-table tr {
     height: auto;
