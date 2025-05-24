@@ -1,7 +1,33 @@
-/* Product Table Component - Scoped CSS */
+/*
+ * Product Table Component - Scoped CSS
+ * Maximum width: 1000px
+ */
+/* ===== Column Width Settings ===== */
+.PT-preview-col {
+  width: 15%;
+}
+
+.PT-product-name-col {
+  width: 34%;
+}
+
+.PT-best-for-col {
+  width: 15%;
+}
+
+.PT-price-col {
+  width: 18%;
+}
+
+.PT-review-col {
+  width: 18%;
+}
+
+/* ===== Base Container Styles ===== */
 .PT-table-container {
   font-family: 'Inter', sans-serif;
-  max-width: 1400px;
+  width: 1000px; /* Set fixed width */
+  max-width: 100%; /* Ensure it doesn't overflow smaller screens */
   margin: 0 auto;
   background: white;
   border-radius: 20px;
@@ -17,6 +43,7 @@
   box-sizing: border-box;
 }
 
+/* ===== Table Base Styles ===== */
 .PT-product-comparison-table {
   width: 100%;
   border-collapse: collapse;
@@ -25,8 +52,9 @@
   font-family: 'Inter', sans-serif;
 }
 
+/* Table Header Styles */
 .PT-product-comparison-table thead {
-  background: linear-gradient(135deg, #329450 0%, #425e4c 100%);
+  background: linear-gradient(135deg, #329450 0%, #13bb4e 100%);
   position: relative;
 }
 
@@ -51,6 +79,7 @@
   border: none;
 }
 
+/* Table Cell Styles */
 .PT-product-comparison-table td {
   padding: 20px;
   border-bottom: 1px solid #f0f0f0;
@@ -58,6 +87,7 @@
   transition: all 0.3s ease;
 }
 
+/* Table Row Hover Effects */
 .PT-product-comparison-table tbody tr {
   transition: all 0.3s ease;
   position: relative;
@@ -79,6 +109,8 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
+/* ===== Cell Type Styles ===== */
+/* Image Cell Styles */
 .PT-image-cell {
   padding: 10px !important;
   text-align: center;
@@ -86,52 +118,74 @@
 }
 
 .PT-image-cell img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100px;
+  width: auto; /* Let width adjust naturally */
+  height: auto; /* Let height adjust naturally */
+  object-fit: contain;
   border-radius: 0;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: none;
   border: none;
   display: block;
+  /* Loading animation styles */
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: PT-shimmer 1.5s infinite;
+}
+
+.PT-image-cell img[src] {
+  background: none;
+  animation: none;
 }
 
 .PT-image-cell img:hover {
-  transform: scale(1.05);
+  transform: scale(1.15);
   filter: brightness(1.1);
 }
 
+/* Title Cell Styles */
 .PT-title-cell {
-  font-size: 20px;
+  font-size: 1.2em;
   text-align: center;
   line-height: 1.5;
-  color: #2d3748;
-  font-weight: 500;
+  color: #000000;
   /* Width is controlled by the column width percentages */
   word-wrap: break-word;
   hyphens: auto;
 }
 
 .PT-title-cell:hover {
-  color: #667eea;
+  color: #3516e0;
 }
 
+/* Best For Cell Styles */
 .PT-best-for-cell {
-  font-size: 14px;
-  color: #4a5568;
+  font-size: 1em;
+  color: #000000;
   font-weight: 500;
-  padding: 8px 12px;
+  padding: 5px 8px !important;
   border-radius: 20px;
   border: 1px solid #e2e8f0;
   text-align: center;
-  white-space: nowrap;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
+/* Button Cell Styles */
+.PT-button-cell {
+  text-align: center;
+  white-space: normal; /* Allow text to wrap */
+  padding: 15px 10px; /* Ensure enough space around buttons */
+}
+
+/* ===== Button Styles ===== */
+/* Amazon Button Styles */
 .PT-amazon-button {
-  background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+  background: linear-gradient(135deg, #ee4040 0%, #e06d59 100%);
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 5px;
   border-radius: 10px;
   cursor: pointer;
   text-decoration: none;
@@ -166,7 +220,7 @@
 }
 
 .PT-amazon-button:hover {
-  background: linear-gradient(135deg, #ff2d4a 0%, #ff4d6d 100%);
+  background: linear-gradient(135deg, #c51e93 0%, #c210b9 100%);
   transform: translateY(-3px) scale(1.03);
   box-shadow: 0 10px 30px rgba(255, 71, 87, 0.5);
   border-color: rgba(255,255,255,0.3);
@@ -176,9 +230,16 @@
   transform: translateY(-1px);
 }
 
+.PT-amazon-button:focus {
+  animation: PT-pulse 1s infinite;
+  outline: none;
+}
+
+/* Review Link Styles */
 .PT-review-link {
   color: #667eea;
   text-decoration: none;
+  font-size: 1em;
   font-weight: 500;
   padding: 8px 16px;
   border: 2px solid #667eea;
@@ -194,116 +255,12 @@
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-.PT-button-cell {
-  text-align: center;
-  white-space: normal; /* Allow text to wrap */
-  padding: 15px 10px; /* Ensure enough space around buttons */
-}
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .PT-product-comparison-table {
-      font-size: 13px;
-  }
-
-  .PT-title-cell {
-      font-size: 14px;
-      max-width: 280px;
-      padding: 12px 10px;
-  }
-
-  /* Keep image styles consistent */
-
-  .PT-amazon-button {
-      padding: 12px 18px;
-      min-width: 140px;
-      font-size: 13px;
-  }
-}
-
-@media (max-width: 900px) {
-  .PT-table-container {
-      border-radius: 15px;
-      margin: 0;
-  }
-}
-
-/* Mobile column width settings (below 800px) */
-@media (max-width: 800px) {
-  .PT-preview-col {
-      width: 20% !important; /* Preview column - mobile */
-  }
-
-  .PT-product-name-col {
-      width: 25% !important; /* Product Name column - mobile */
-  }
-
-  .PT-best-for-col {
-      width: 15% !important; /* Best For column - mobile */
-  }
-
-  .PT-price-col {
-      width: 20% !important; /* Price column - mobile */
-  }
-
-  .PT-review-col {
-      width: 20% !important; /* Review column - mobile */
-  }
-
-  /* Force the table to use these widths */
-  .PT-product-comparison-table {
-      table-layout: fixed !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .PT-table-container {
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  }
-
-  .PT-product-comparison-table th {
-      padding: 10px 4px;
-      font-size: 11px;
-      letter-spacing: 0.3px;
-  }
-
-  .PT-product-comparison-table td {
-      padding: 8px 4px;
-  }
-
-  /* Keep image styles consistent with base styles */
-
-  .PT-title-cell {
-      font-size: 12px;
-      line-height: 1.4;
-      padding: 8px 4px;
-  }
-
-  .PT-best-for-cell {
-      font-size: 11px;
-      padding: 4px 6px;
-      border-radius: 15px;
-      white-space: normal;
-  }
-}
-
+/* ===== Animations ===== */
 /* Loading animation for images */
 @keyframes PT-shimmer {
   0% { background-position: -200px 0; }
   100% { background-position: calc(200px + 100%) 0; }
-}
-
-/* Loading animation for images - applied to all images */
-.PT-image-cell img {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200px 100%;
-  animation: PT-shimmer 1.5s infinite;
-}
-
-.PT-image-cell img[src] {
-  background: none;
-  animation: none;
 }
 
 /* Subtle pulse animation for buttons */
@@ -312,103 +269,114 @@
   50% { opacity: 0.8; }
 }
 
-.PT-amazon-button:focus {
-  animation: PT-pulse 1s infinite;
-  outline: none;
-}
+/* ===== Responsive Design ===== */
+/* Large screens (up to 1200px) */
 
-/* Medium screen adjustments (720-1000px) */
-@media (max-width: 1000px) and (min-width: 720px) {
-  /* Ensure buttons display properly at all sizes above 720px */
+/* Medium-large screens (up to 1000px) */
+@media (max-width: 1010px) and (min-width: 720px) {
   .PT-button-cell {
-      padding: 8px 2px;
-      vertical-align: middle;
+    padding: 8px 2px;
+    vertical-align: middle;
   }
 
   .PT-amazon-button {
-      padding: 8px 10px;
-      font-size: 12px;
-      white-space: nowrap; /* Keep text on one line */
-      width: auto; /* Let content determine width */
-      display: inline-block;
+    padding: 8px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+    width: auto;
+    display: inline-block;
   }
 
   .PT-review-link {
-      padding: 6px 8px;
-      font-size: 12px;
-      display: inline-block;
-      width: auto;
-      margin: 0;
+    padding: 6px 8px;
+    font-size: 12px;
+    display: inline-block;
+    width: auto;
+    margin: 0;
   }
 
-  /* Adjust column widths slightly at this breakpoint */
-  .PT-price-col {
-      width: 18% !important;
-  }
+}
 
-  .PT-review-col {
-      width: 18% !important;
+
+
+/* Small-medium screens (up to 800px) */
+@media (max-width: 800px) {
+  /* Mobile column width settings */
+  .PT-preview-col {
+    width: 20% !important; /* Preview column - mobile */
   }
 
   .PT-product-name-col {
-      width: 34% !important;
+    width: 25% !important; /* Product Name column - mobile */
   }
-}
 
-/* Core responsive table styles */
-@media (max-width: 800px) {
+  .PT-best-for-col {
+    width: 15% !important; /* Best For column - mobile */
+  }
+
+  .PT-price-col {
+    width: 20% !important; /* Price column - mobile */
+  }
+
+  .PT-review-col {
+    width: 20% !important; /* Review column - mobile */
+  }
+
+  /* Force the table to use these widths */
+  .PT-product-comparison-table {
+    table-layout: fixed !important;
+  }
+
+  /* Core responsive table styles */
   .PT-table-container {
-      max-width: 100%;
-      width: 100%;
+    max-width: 100%;
+    width: 100%;
   }
 
   .PT-product-comparison-table {
-      width: 100%;
-      table-layout: fixed;
-      border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
   }
 
-  .PT-product-comparison-table th,
-  .PT-product-comparison-table td {
-      white-space: normal;
-      padding: 8px 4px; /* Smaller padding for mobile */
-  }
+
 
   /* Make title fully visible on small devices */
   .PT-title-cell {
-      overflow: visible;
-      white-space: normal;
-      word-wrap: break-word;
-      height: auto;
-      max-width: none; /* Remove max-width to allow percentage to control width */
+    overflow: visible;
+    white-space: normal;
+    word-wrap: break-word;
+    height: auto;
+    max-width: none; /* Remove max-width to allow percentage to control width */
   }
 
   /* Keep image cell consistent */
   .PT-image-cell {
-      width: auto; /* Let the percentage control the width */
-      padding: 10px !important;
+    width: auto; /* Let the percentage control the width */
+    padding: 10px !important;
   }
 
   /* Adjust button sizes for mobile */
   .PT-amazon-button {
-      min-width: 0;
-      width: 100%;
-      padding: 8px 10px;
-      font-size: 11px;
-      white-space: normal; /* Allow text to wrap */
-      height: auto;
+    min-width: 0;
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 11px;
+    white-space: normal; /* Allow text to wrap */
+    height: auto;
   }
 
   .PT-review-link {
-      padding: 6px 8px;
-      font-size: 11px;
-      display: block;
-      width: 90%;
-      margin: 0 auto;
+    padding: 6px 8px;
+    font-size: 11px;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
   }
 
   /* Ensure rows can expand as needed */
   .PT-product-comparison-table tr {
-      height: auto;
+    height: auto;
   }
 }
+
