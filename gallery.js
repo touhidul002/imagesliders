@@ -1,7 +1,9 @@
-// Simple multi-gallery system
+// Minimal test gallery - No hanging
 window.galleries = {};
 
 function initGallery(galleryId) {
+    console.log('Init gallery:', galleryId);
+    
     const gallerySection = document.querySelector(`[data-gallery="${galleryId}"]`);
     if (!gallerySection) return;
 
@@ -29,8 +31,7 @@ function initGallery(galleryId) {
     window.galleries[galleryId] = {
         images: images,
         currentIndex: 0,
-        elements: { mainImage, caption, thumbnailsContainer },
-        timer: null
+        elements: { mainImage, caption, thumbnailsContainer }
     };
 
     // Create thumbnails
@@ -38,7 +39,25 @@ function initGallery(galleryId) {
     images.forEach((image, index) => {
         const container = document.createElement('div');
         container.className = 'thumbnail-container';
-        container.onclick = () => showImage(galleryId, index);
+        container.style.cursor = 'pointer';
+        
+        // Simple click - no complex functions
+        container.onclick = function() {
+            console.log('Clicked thumbnail:', index);
+            const gallery = window.galleries[galleryId];
+            if (gallery) {
+                gallery.currentIndex = index;
+                gallery.elements.mainImage.src = gallery.images[index].src;
+                gallery.elements.mainImage.alt = gallery.images[index].alt;
+                gallery.elements.caption.textContent = gallery.images[index].caption;
+                
+                // Update borders
+                const containers = gallery.elements.thumbnailsContainer.querySelectorAll('.thumbnail-container');
+                containers.forEach((c, i) => {
+                    c.style.borderColor = i === index ? '#0d2075' : '#ddd';
+                });
+            }
+        };
 
         const thumb = document.createElement('img');
         thumb.className = 'thumbnail';
@@ -50,52 +69,21 @@ function initGallery(galleryId) {
     });
 
     // Show first image
-    showImage(galleryId, 0);
-    startTimer(galleryId);
+    const firstImage = images[0];
+    mainImage.src = firstImage.src;
+    mainImage.alt = firstImage.alt;
+    caption.textContent = firstImage.caption;
+    
+    // Set first thumbnail border
+    const firstContainer = thumbnailsContainer.querySelector('.thumbnail-container');
+    if (firstContainer) {
+        firstContainer.style.borderColor = '#0d2075';
+    }
 }
 
-function showImage(galleryId, index) {
-    const gallery = window.galleries[galleryId];
-    if (!gallery) return;
-
-    gallery.currentIndex = index;
-    const image = gallery.images[index];
-
-    gallery.elements.mainImage.src = image.src;
-    gallery.elements.mainImage.alt = image.alt;
-    gallery.elements.caption.textContent = image.caption;
-
-    // Update thumbnails
-    const thumbnails = gallery.elements.thumbnailsContainer.querySelectorAll('.thumbnail');
-    const containers = gallery.elements.thumbnailsContainer.querySelectorAll('.thumbnail-container');
-
-    thumbnails.forEach((thumb, i) => thumb.classList.toggle('active', i === index));
-    containers.forEach((container, i) => {
-        container.style.borderColor = i === index ? '#0d2075' : '#ddd';
-    });
-
-    startTimer(galleryId);
-}
-
-function changeImage(galleryId, step) {
-    const gallery = window.galleries[galleryId];
-    if (!gallery) return;
-
-    const newIndex = (gallery.currentIndex + step + gallery.images.length) % gallery.images.length;
-    showImage(galleryId, newIndex);
-}
-
-function startTimer(galleryId) {
-    const gallery = window.galleries[galleryId];
-    if (!gallery) return;
-
-    if (gallery.timer) clearInterval(gallery.timer);
-    gallery.timer = setInterval(() => {
-        changeImage(galleryId, 1);
-    }, 6000);
-}
-
+// Simple lightbox
 function openConstrainedLightbox(galleryId) {
+    console.log('Opening lightbox for:', galleryId);
     const gallery = window.galleries[galleryId];
     if (!gallery) return;
 
@@ -104,47 +92,45 @@ function openConstrainedLightbox(galleryId) {
     const lightboxImage = document.getElementById('constrained-lightbox-image');
     const lightboxCaption = document.getElementById('constrained-lightbox-caption');
 
-    lightboxImage.src = image.src;
-    lightboxImage.alt = image.alt;
-    lightboxCaption.textContent = image.caption;
-
-    lightbox.setAttribute('data-current-gallery', galleryId);
-    lightbox.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    if (lightbox && lightboxImage && lightboxCaption) {
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        lightboxCaption.textContent = image.caption;
+        lightbox.setAttribute('data-current-gallery', galleryId);
+        lightbox.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 function closeConstrainedLightbox() {
     const lightbox = document.getElementById('constrained-lightbox');
-    lightbox.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-function constrainedLightboxChangeImage(step) {
-    const lightbox = document.getElementById('constrained-lightbox');
-    const galleryId = lightbox.getAttribute('data-current-gallery');
-    if (galleryId) {
-        changeImage(galleryId, step);
-        openConstrainedLightbox(galleryId);
+    if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
 }
 
-// Event listeners
+// Initialize when DOM loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all galleries
+    console.log('DOM loaded, initializing galleries...');
+    
     document.querySelectorAll('[data-gallery]').forEach(element => {
         const galleryId = element.getAttribute('data-gallery');
         initGallery(galleryId);
     });
 
-    // Lightbox event listeners
-    document.querySelector('.constrained-lightbox-close').onclick = closeConstrainedLightbox;
-    document.querySelector('.constrained-lightbox-prev').onclick = () => constrainedLightboxChangeImage(-1);
-    document.querySelector('.constrained-lightbox-next').onclick = () => constrainedLightboxChangeImage(1);
-
-    // Keyboard navigation
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') closeConstrainedLightbox();
-        else if (event.key === 'ArrowLeft') constrainedLightboxChangeImage(-1);
-        else if (event.key === 'ArrowRight') constrainedLightboxChangeImage(1);
-    });
+    // Simple lightbox events
+    const closeBtn = document.querySelector('.constrained-lightbox-close');
+    if (closeBtn) {
+        closeBtn.onclick = closeConstrainedLightbox;
+    }
+    
+    const lightbox = document.getElementById('constrained-lightbox');
+    if (lightbox) {
+        lightbox.onclick = function(event) {
+            if (event.target === lightbox) {
+                closeConstrainedLightbox();
+            }
+        };
+    }
 });
