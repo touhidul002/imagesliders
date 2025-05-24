@@ -26,17 +26,12 @@
 /* ===== Base Container Styles ===== */
 .PT-table-container {
   font-family: 'Inter', sans-serif;
-  width: 1000px; /* Set fixed width */
-  max-width: 100%; /* Ensure it doesn't overflow smaller screens */
-  margin: 0 auto;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  overflow-x: auto; /* Always allow horizontal scrolling if needed */
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  box-sizing: border-box;
+  max-width: 1000px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 30px auto;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .PT-table-container * {
