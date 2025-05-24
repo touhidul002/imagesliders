@@ -167,7 +167,7 @@
   padding: 10px 5px;
   border-radius: 10px;
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: none !important;
   display: inline-block;
   font-weight: 500;
   font-size: 13px;
@@ -180,7 +180,14 @@
   overflow: hidden;
   border: 2px solid transparent;
   white-space: normal; /* Allow text to wrap */
+}
 
+/* Force no underline on hover and all states */
+.PT-amazon-button:link,
+.PT-amazon-button:visited,
+.PT-amazon-button:hover,
+.PT-amazon-button:active {
+  text-decoration: none !important;
 }
 
 .PT-amazon-button::before {
@@ -360,7 +367,7 @@
     font-size: 16px;
     letter-spacing: 0.5px;
 
-    border: none;  
+    border: none;
   }
   /* Ensure rows can expand as needed */
   .PT-product-comparison-table tr {
