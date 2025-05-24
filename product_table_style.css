@@ -8,7 +8,7 @@
 }
 
 .PT-product-name-col {
-  width: 34%;
+  width: 32%; /* Reduced from 34% */
 }
 
 .PT-best-for-col {
@@ -20,18 +20,23 @@
 }
 
 .PT-review-col {
-  width: 18%;
+  width: 20%; /* Increased from 18% */
 }
 
 /* ===== Base Container Styles ===== */
 .PT-table-container {
   font-family: 'Inter', sans-serif;
-  max-width: 1000px;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 30px auto;
-  background-color: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 1000px; /* Set fixed width */
+  max-width: 100%; /* Ensure it doesn't overflow smaller screens */
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  overflow-x: auto; /* Always allow horizontal scrolling if needed */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  box-sizing: border-box;
 }
 
 .PT-table-container * {
@@ -248,6 +253,15 @@
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Add specific styling for review buttons */
+.PT-review-button {
+  padding: 8px 12px;
+  font-size: 13px;
+  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 
