@@ -263,7 +263,7 @@
 
 
 /* Small-medium screens (up to 720px) */
-@media (max-width: 720px) {
+@media (max-width: 780px) {
   /* Mobile column width settings */
   .PT-preview-col {
     width: 20% !important; /* Preview column - mobile */
