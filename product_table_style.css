@@ -174,13 +174,14 @@
   letter-spacing: 0.5px;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
-  white-space: nowrap; /* Keep text on one line */
   min-width: 0; /* Remove min-width to allow natural sizing */
   text-align: center;
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
   border: 2px solid transparent;
+  white-space: normal; /* Allow text to wrap */
+
 }
 
 .PT-amazon-button::before {
