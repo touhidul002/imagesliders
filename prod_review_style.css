@@ -1,4 +1,5 @@
-:root {
+/* Scoped Product Review Widget Styles */
+.prod-review-widget {
     --primary-color: #0056b3;
     --accent-color: #003d82;
     --pros-bg: #f0f9f0;
@@ -11,31 +12,40 @@
     --border-color: #e1e1e1;
     --text-dark: #333;
     --text-light: #666;
-}
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin: 0;
-    background-color: #f8f9fa;
-    color: #2d3748;
-    line-height: 1.6;
+    /* Reset and base styles for the widget */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    color: #2d3748 !important;
+    line-height: 1.6 !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
-    font-size: 17px;
-    letter-spacing: 0.01em;
+    font-weight: 400 !important;
+    font-size: 17px !important;
+    letter-spacing: 0.01em !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    text-decoration: none !important;
+    list-style: none !important;
+    outline: none !important;
+    vertical-align: baseline !important;
 }
 
-.review-card {
-    max-width: 1000px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 30px auto;
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.prod-review-widget *,
+.prod-review-widget *::before,
+.prod-review-widget *::after {
+    box-sizing: inherit !important;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-.review-card {
+.prod-review-widget .review-card {
     max-width: 1000px;
     border-radius: 10px;
     overflow: hidden;
@@ -44,15 +54,16 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.review-header {
-    margin:20px;
+.prod-review-widget .review-header {
+    margin: 20px;
+    border: 2px solid #047c22;
     background-color: #ffffff;
     padding: 10px; /* Add padding for better spacing */
     position: relative;
     box-shadow: 0 12px 18px rgba(19, 146, 32, 0.336); /* Soft shadow */
 }
 
-.review-best {
+.prod-review-widget .review-best {
     display: inline-block;
     font-size: 16px;
     text-transform: uppercase;
@@ -65,7 +76,7 @@ body {
     margin-bottom: 2px; /* Minimal space between badge and title */
 }
 
-.review-title {
+.prod-review-widget .review-title {
     margin: 0;
     font-size: 1.4em;
     font-weight: 600;
@@ -78,35 +89,35 @@ body {
 
 /* Responsive adjustments for small devices */
 @media (max-width: 768px) {
-    .review-header {
+    .prod-review-widget .review-header {
         padding: 8px;
     }
-    
-    .review-best {
+
+    .prod-review-widget .review-best {
         font-size: 14px;
         padding: 3px 8px;
         margin-bottom: 1px; /* Minimal gap on mobile */
     }
-    
-    .review-title {
+
+    .prod-review-widget .review-title {
         font-size: 1.2em;
         padding-top: 0; /* No additional padding */
     }
 }
 
 @media (max-width: 480px) {
-    .review-best {
+    .prod-review-widget .review-best {
         font-size: 12px;
         padding: 2px 6px;
         margin-bottom: 1px; /* Minimal gap on small screens */
     }
-    
-    .review-title {
+
+    .prod-review-widget .review-title {
         font-size: 1.1em;
         padding-top: 0; /* No additional padding */
     }
 }
-.content-wrapper {
+.prod-review-widget .content-wrapper {
     display: flex;
     flex-direction: row;
     padding: 5px 5px;
@@ -114,36 +125,36 @@ body {
 }
 
 @media (max-width: 768px) {
-    .content-wrapper {
+    .prod-review-widget .content-wrapper {
         flex-direction: column;
     }
 }
 
-.image-container {
+.prod-review-widget .image-container {
     flex: 1;
     text-align: center;
 }
 
-.product-image {
+.prod-review-widget .product-image {
     width: 100%;
     max-width: 400px;
-    height: auto;
+    height: 400px;
     border-radius: 8px;
     box-shadow: 0 6px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
 
-.product-image:hover {
+.prod-review-widget .product-image:hover {
     transform: scale(1.02);
 }
 
-.details-container {
+.prod-review-widget .details-container {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.cta-button {
+.prod-review-widget .cta-button {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     color: white;
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -166,44 +177,44 @@ body {
     letter-spacing: 0.5px;
 }
 
-.cta-button:hover {
+.prod-review-widget .cta-button:hover {
     transform: translateY(-12px);
     box-shadow: 0 8px 20px rgba(0, 86, 179, 0.4);
 }
 
-.cta-button:active {
+.prod-review-widget .cta-button:active {
     transform: translateY(0);
 }
 
-.button-icon {
+.prod-review-widget .button-icon {
     margin-left: 12px;
     font-size: 18px;
     transition: transform 0.3s ease;
 }
 
-.cta-button:hover .button-icon {
+.prod-review-widget .cta-button:hover .button-icon {
     transform: translateX(4px);
 }
 
-.specs-container {
+.prod-review-widget .specs-container {
     margin: 10px 20px;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid var(--border-color);
 }
 
-.spec-item {
+.prod-review-widget .spec-item {
     display: flex;
     padding: 12px 15px;
     background-color: white;
     font-size: 19px;
 }
 
-.spec-item:nth-child(odd) {
+.prod-review-widget .spec-item:nth-child(odd) {
     background-color: var(--light-gray);
 }
 
-.spec-label {
+.prod-review-widget .spec-label {
     font-weight: 700;
     flex: 1.5;
     color: #1a202c;
@@ -211,47 +222,47 @@ body {
     letter-spacing: 0.3px;
 }
 
-.spec-value {
+.prod-review-widget .spec-value {
     flex: 1.5;
     color: #4a5568;
     padding-left: 5px;
     font-weight: 500;
 }
 
-.pros-cons-content {
+.prod-review-widget .pros-cons-content {
     padding: 5px 30px 15px;
 }
 
-.pros-cons {
+.prod-review-widget .pros-cons {
     display: flex;
     margin: 5px 0;
     gap: 25px;
 }
 
 @media (max-width: 768px) {
-    .pros-cons {
+    .prod-review-widget .pros-cons {
         flex-direction: column;
     }
 }
 
-.pros, .cons {
+.prod-review-widget .pros, .prod-review-widget .cons {
     flex: 1;
     padding: 10px;
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
 
-.pros {
+.prod-review-widget .pros {
     background-color: var(--pros-bg);
     border-left: 5px solid var(--pros-border);
 }
 
-.cons {
+.prod-review-widget .cons {
     background-color: var(--cons-bg);
     border-left: 5px solid var(--cons-border);
 }
 
-.pros h4, .cons h4 {
+.prod-review-widget .pros h3, .prod-review-widget .cons h3 {
     margin: 0 0 10px 0;
     font-size: 1.2em;
     padding-bottom: 12px;
@@ -259,15 +270,15 @@ body {
     text-align: center;
 }
 
-.pros h4 {
+.prod-review-widget .pros h3 {
     color: var(--pros-color);
 }
 
-.cons h4 {
+.prod-review-widget .cons h3 {
     color: var(--cons-color);
 }
 
-.pro-item, .con-item {
+.prod-review-widget .pro-item, .prod-review-widget .con-item {
     display: flex;
     align-items: flex-start;
     margin-bottom: 15px;
@@ -275,7 +286,7 @@ body {
     font-size: 19px;
 }
 
-.pro-icon, .con-icon {
+.prod-review-widget .pro-icon, .prod-review-widget .con-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,23 +299,23 @@ body {
     font-weight: bold;
 }
 
-.pro-icon {
+.prod-review-widget .pro-icon {
     background-color: var(--pros-border);
     color: white;
 }
 
-.con-icon {
+.prod-review-widget .con-icon {
     background-color: var(--cons-border);
     color: white;
 }
 
-.review-section {
+.prod-review-widget .review-section {
     background-color: #ffffffe8;
     padding: 5px 10px;
     border-top: 1px solid var(--border-color);
 }
 
-.review-content {
+.prod-review-widget .review-content {
     max-width: 900px;
     margin: 0 auto 25px;
     line-height: 1.7;
@@ -312,7 +323,7 @@ body {
     color: var(--text-dark);
 }
 
-.review-content p {
+.prod-review-widget .review-content p {
     margin-bottom: 1.5em;
     font-size: 1.1em;
     font-weight: 400;
@@ -323,7 +334,7 @@ body {
     margin-right: auto;
 }
 
-.review-meta {
+.prod-review-widget .review-meta {
     text-align: center;
     color: var(--text-light);
     font-size: 14px;
@@ -331,26 +342,26 @@ body {
     margin-top: 15px;
 }
 
-.rating {
+.prod-review-widget .rating {
     display: flex;
     justify-content: center;
     margin-top: 15px;
 }
 
-.star {
+.prod-review-widget .star {
     color: gold;
     font-size: 24px;
     margin: 0 2px;
 }
 /* Custom gallery styles to match the page theme */
-.gallery-section {
+.prod-review-widget .gallery-section {
     padding: 5px;
     background-color: white;
     border-top: 1px solid var(--border-color);
     margin-bottom: 10px;
 }
 
-.gallery-title {
+.prod-review-widget .gallery-title {
     text-align: center;
     color: var(--primary-color);
     margin-bottom: 25px;
@@ -358,7 +369,7 @@ body {
     font-weight: 600;
 }
 
-.gallery-container {
+.prod-review-widget .gallery-container {
     max-width: 900px;
     margin: 0 auto;
     padding: 5px;
@@ -367,14 +378,14 @@ body {
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-.main-image-container {
+.prod-review-widget .main-image-container {
     position: relative;
     margin-bottom: 15px;
     border-radius: 6px;
     overflow: hidden;
 }
 
-.main-image {
+.prod-review-widget .main-image {
     width: 100%;
     max-height: 500px;
     object-fit: contain;
@@ -382,11 +393,11 @@ body {
     transition: transform 0.3s ease;
 }
 
-.main-image:hover {
+.prod-review-widget .main-image:hover {
     transform: scale(1.02);
 }
 
-.nav-button {
+.prod-review-widget .nav-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -399,21 +410,21 @@ body {
     transition: background 0.3s;
 }
 
-.nav-button:hover {
+.prod-review-widget .nav-button:hover {
     background: var(--primary-color);
 }
 
-.prev { left: 0; border-radius: 0 5px 5px 0; }
-.next { right: 0; border-radius: 5px 0 0 5px; }
+.prod-review-widget .prev { left: 0; border-radius: 0 5px 5px 0; }
+.prod-review-widget .next { right: 0; border-radius: 5px 0 0 5px; }
 
-.caption {
+.prod-review-widget .caption {
     text-align: center;
     color: var(--text-light);
     font-style: italic;
     margin: 10px 0;
 }
 
-.thumbnails {
+.prod-review-widget .thumbnails {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -421,7 +432,7 @@ body {
     margin-top: 15px;
 }
 
-.thumbnails img {
+.prod-review-widget .thumbnails img {
     width: 80px;
     height: 60px;
     object-fit: cover;
@@ -431,20 +442,20 @@ body {
     transition: all 0.3s ease;
 }
 
-.thumbnails img:hover, .thumbnails img.active {
+.prod-review-widget .thumbnails img:hover, .prod-review-widget .thumbnails img.active {
     border-color: var(--primary-color);
     transform: translateY(-3px);
 }
 
 /* Amazon Button Styles */
-.amazon-button-container {
+.prod-review-widget .amazon-button-container {
     text-align: center;
     padding: 10px 10px;
     background-color: white;
     border-top: 1px solid var(--border-color);
 }
 
-.amazon-button {
+.prod-review-widget .amazon-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -458,7 +469,7 @@ body {
     text-decoration: none;
     box-shadow: 0 6px 15px rgba(0, 86, 179, 0.3);
     transition: all 0.3s ease;
-    max-width: 280px;
+    max-width: 320px;
     width: 100%;
     margin: 0 auto 10px;
     position: relative;
@@ -466,30 +477,176 @@ body {
     letter-spacing: 0.5px;
     cursor: pointer;
 }
+@media (max-width: 768px) {
+    .prod-review-widget .amazon-button {
+        font-size: 15px;
+        padding: 4px 10px;
 
-.amazon-button:hover {
+    }
+}
+.prod-review-widget .amazon-button:hover {
     transform: translateY(-12px);
     box-shadow: 0 8px 20px rgba(0, 86, 179, 0.4);
 }
 
-.amazon-button:active {
+.prod-review-widget .amazon-button:active {
     transform: translateY(0);
 }
 
-.amazon-button-icon {
+.prod-review-widget .amazon-button-icon {
     margin-right: 10px;
     display: flex;
     align-items: center;
     color: white;
 }
 
-.amazon-button-text {
+.prod-review-widget .amazon-button-text {
     white-space: nowrap;
 }
 
-.amazon-disclaimer {
+.prod-review-widget .amazon-disclaimer {
     color: var(--text-light);
     font-size: 12px;
     margin-top: 10px;
     font-style: italic;
+}
+
+/* Lightbox Styles - Scoped and Conflict-Free */
+#constrained-lightbox {
+    display: none !important;
+    position: fixed !important;
+    z-index: 10000 !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: auto !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-sizing: border-box !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+.constrained-lightbox-content {
+    position: relative !important;
+    margin: auto !important;
+    padding: 0 !important;
+    width: 90% !important;
+    max-width: 1200px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    box-sizing: border-box !important;
+}
+
+.constrained-lightbox-close {
+    position: absolute !important;
+    top: 15px !important;
+    right: 35px !important;
+    color: #f1f1f1 !important;
+    font-size: 40px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    z-index: 10001 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    line-height: 1 !important;
+    font-family: inherit !important;
+    transition: color 0.3s ease !important;
+}
+
+.constrained-lightbox-close:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+}
+
+.constrained-lightbox-image {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-sizing: border-box !important;
+    max-height: 80vh !important;
+    object-fit: contain !important;
+}
+
+.constrained-lightbox-caption {
+    text-align: center !important;
+    color: #ccc !important;
+    padding: 10px 0 !important;
+    font-size: 18px !important;
+    margin: 0 !important;
+    border: none !important;
+    background: none !important;
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+    line-height: 1.4 !important;
+}
+
+.constrained-lightbox-prev,
+.constrained-lightbox-next {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
+    border: none !important;
+    padding: 16px !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+    transition: background-color 0.3s ease !important;
+    border-radius: 4px !important;
+}
+
+.constrained-lightbox-prev {
+    left: 16px !important;
+}
+
+.constrained-lightbox-next {
+    right: 16px !important;
+}
+
+.constrained-lightbox-prev:hover,
+.constrained-lightbox-next:hover {
+    background: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Responsive lightbox styles */
+@media (max-width: 768px) {
+    .constrained-lightbox-content {
+        width: 95% !important;
+        top: 50% !important;
+    }
+
+    .constrained-lightbox-close {
+        top: 10px !important;
+        right: 20px !important;
+        font-size: 30px !important;
+    }
+
+    .constrained-lightbox-prev,
+    .constrained-lightbox-next {
+        padding: 12px !important;
+        font-size: 16px !important;
+    }
+
+    .constrained-lightbox-prev {
+        left: 10px !important;
+    }
+
+    .constrained-lightbox-next {
+        right: 10px !important;
+    }
+
+    .constrained-lightbox-caption {
+        font-size: 16px !important;
+        padding: 8px 0 !important;
+    }
 }
