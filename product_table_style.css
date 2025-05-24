@@ -8,7 +8,7 @@
 }
 
 .PT-product-name-col {
-  width: 28%; /* Reduced from 34% */
+  width: 32%; /* Reduced from 34% */
 }
 
 .PT-best-for-col {
@@ -20,13 +20,13 @@
 }
 
 .PT-review-col {
-  width: 18%; /* Increased from 18% */
+  width: 20%; /* Increased from 18% */
 }
 
 /* ===== Base Container Styles ===== */
 .PT-table-container {
   font-family: 'Inter', sans-serif;
-  width: 1000px; /* Set fixed width */
+  width: 940px; /* Set fixed width */
   max-width: 100%; /* Ensure it doesn't overflow smaller screens */
   margin: 0 auto;
   background: white;
@@ -45,6 +45,7 @@
 
 /* ===== Table Base Styles ===== */
 .PT-product-comparison-table {
+  width: 1000px; /* Set fixed width */
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
