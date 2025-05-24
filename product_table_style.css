@@ -8,7 +8,7 @@
 }
 
 .PT-product-name-col {
-  width: 32%; /* Reduced from 34% */
+  width: 28%; /* Reduced from 34% */
 }
 
 .PT-best-for-col {
@@ -20,7 +20,7 @@
 }
 
 .PT-review-col {
-  width: 20%; /* Increased from 18% */
+  width: 18%; /* Increased from 18% */
 }
 
 /* ===== Base Container Styles ===== */
