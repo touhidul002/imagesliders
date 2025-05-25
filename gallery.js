@@ -147,7 +147,7 @@ function startTimer(galleryId) {
     if (gallery.images.length > 1) {
         gallery.timer = setInterval(() => {
             changeImage(galleryId, 1);
-        }, 6000);
+        }, 5000);
     }
 }
 
