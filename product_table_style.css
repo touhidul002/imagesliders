@@ -349,7 +349,7 @@
     min-width: 0;
     width: 100%;
     padding: 3px 3px;
-    font-size: 12px;
+    font-size: 11px;
     white-space: normal; /* Allow text to wrap */
     height: auto;
   }
@@ -357,8 +357,8 @@
   .PT-review-link {
     min-width: 0;
     width: 100%;
-    padding: 3px 3px;
-    font-size: 12px;
+    padding: 2px 2px;
+    font-size: 11px;
     white-space: normal; /* Allow text to wrap */
     height: auto;
   }
