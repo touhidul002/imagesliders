@@ -283,11 +283,11 @@
   }
 
   .PT-best-for-col {
-    width: 19% !important; /* Best For column - mobile */
+    width: 18% !important; /* Best For column - mobile */
   }
 
   .PT-price-col {
-    width: 17% !important; /* Price column - mobile */
+    width: 18% !important; /* Price column - mobile */
   }
 
   .PT-review-col {
@@ -348,7 +348,7 @@
   .PT-amazon-button {
     min-width: 0;
     width: 100%;
-    padding: 5px 5px;
+    padding: 3px 3px;
     font-size: 12px;
     white-space: normal; /* Allow text to wrap */
     height: auto;
@@ -357,8 +357,8 @@
   .PT-review-link {
     min-width: 0;
     width: 100%;
-    padding: 5px 5px;
-    font-size: 13px;
+    padding: 3px 3px;
+    font-size: 12px;
     white-space: normal; /* Allow text to wrap */
     height: auto;
   }
