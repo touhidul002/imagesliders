@@ -275,7 +275,7 @@
 @media (max-width: 720px) {
   /* Mobile column width settings */
   .PT-preview-col {
-    width: 20% !important; /* Preview column - mobile */
+    width: 19% !important; /* Preview column - mobile */
   }
 
   .PT-product-name-col {
@@ -283,15 +283,15 @@
   }
 
   .PT-best-for-col {
-    width: 16% !important; /* Best For column - mobile */
+    width: 19% !important; /* Best For column - mobile */
   }
 
   .PT-price-col {
-    width: 18% !important; /* Price column - mobile */
+    width: 17% !important; /* Price column - mobile */
   }
 
   .PT-review-col {
-    width: 18% !important; /* Review column - mobile */
+    width: 17% !important; /* Review column - mobile */
   }
 
   /* Force the table to use these widths */
