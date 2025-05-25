@@ -375,6 +375,15 @@
   .PT-product-comparison-table tr {
     height: auto;
   }
+
+  .PT-best-for-cell {
+    font-size: 12px;
+    color: #000000;
+    font-weight: 500;
+    padding: 2px 3px !important;
+    border-radius: 10px;
+  }
+  
 }
 
 .PT-preview-col {
