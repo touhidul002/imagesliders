@@ -432,19 +432,33 @@
     margin-top: 15px;
 }
 
+.prod-review-widget .thumbnail-container {
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.prod-review-widget .thumbnail-container:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 86, 179, 0.2);
+}
+
 .prod-review-widget .thumbnails img {
     width: 80px;
     height: 60px;
     object-fit: cover;
-    border: 2px solid transparent;
-    border-radius: 4px;
+    border: none;
+    border-radius: 2px;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: block;
 }
 
 .prod-review-widget .thumbnails img:hover, .prod-review-widget .thumbnails img.active {
-    border-color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: scale(1.05);
 }
 
 /* Amazon Button Styles */
