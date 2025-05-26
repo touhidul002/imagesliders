@@ -334,6 +334,22 @@
     margin-right: auto;
 }
 
+/* Strong/Bold text styling - Override CSS reset */
+.prod-review-widget strong,
+.prod-review-widget .review-content strong,
+.prod-review-widget .review-section strong,
+.prod-review-widget .pros-cons strong,
+.prod-review-widget .review-best strong {
+    font-weight: 700 !important;
+    color: #1a202c !important;
+    font-family: inherit !important;
+}
+
+/* Ensure bold text is visible on all backgrounds */
+.prod-review-widget .review-best strong {
+    color: white !important;
+}
+
 .prod-review-widget .review-meta {
     text-align: center;
     color: var(--text-light);
