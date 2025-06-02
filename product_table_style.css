@@ -266,32 +266,63 @@
   50% { opacity: 0.8; }
 }
 
+/* ===== Column Width Settings for ALL Screen Sizes ===== */
+/* COMPLETELY HIDE PT-review-col for ALL screen sizes */
+.PT-review-col {
+  display: none !important;
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  visibility: hidden !important;
+}
+
+/* Desktop column widths (redistributed without review column) */
+.PT-preview-col {
+  width: 20% !important; /* Increased from 15% */
+}
+
+.PT-product-name-col {
+  width: 35% !important; /* Increased from 30% */
+}
+
+.PT-best-for-col {
+  width: 20% !important; /* Increased from 15% */
+}
+
+.PT-price-col {
+  width: 25% !important; /* Increased from 20% */
+}
+
 /* ===== Responsive Design ===== */
-
-
-
 
 /* Small-medium screens (up to 720px) */
 @media (max-width: 720px) {
-  /* Mobile column width settings */
+  /* Mobile column width settings (redistributed without review column) */
   .PT-preview-col {
-    width: 22% !important; /* Preview column - mobile */
+    width: 25% !important; /* Increased from 22% */
   }
 
   .PT-product-name-col {
-    width: 33% !important; /* Product Name column - mobile */
+    width: 40% !important; /* Increased from 33% */
   }
 
   .PT-best-for-col {
-    width: 22% !important; /* Best For column - mobile */
+    width: 35% !important; /* Increased from 22% */
   }
 
   .PT-price-col {
-    width: 22% !important; /* Price column - mobile */
+    width: 0% !important; /* Hide price column on mobile to make room */
+    display: none !important;
   }
 
   .PT-review-col {
     display: none !important; /* Review column - mobile, fully hidden */
+    width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    visibility: hidden !important;
   }
 
   /* Force the table to use these widths */
@@ -325,8 +356,6 @@
     vertical-align: middle;
     transition: all 0.3s ease;
   }
-
-
 
   /* Make title fully visible on small devices */
   .PT-title-cell {
@@ -368,7 +397,6 @@
     font-weight: 400;
     font-size: 15px;
     letter-spacing: 0.5px;
-
     border: none;
   }
   /* Ensure rows can expand as needed */
@@ -384,24 +412,4 @@
     border-radius: 10px;
   }
   
-}
-
-.PT-preview-col {
-  width: 15%;
-}
-
-.PT-product-name-col {
-  width: 30%; /* Reduced from 34% */
-}
-
-.PT-best-for-col {
-  width: 15%;
-}
-
-.PT-price-col {
-  width: 20%;
-}
-
-.PT-review-col {
-  display: none !important; /* Fully hidden */
 }
