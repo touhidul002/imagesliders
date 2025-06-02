@@ -291,7 +291,7 @@
   }
 
   .PT-review-col {
-    width: 0% !important; /* Review column - mobile */
+    display: none !important; /* Review column - mobile, fully hidden */
   }
 
   /* Force the table to use these widths */
@@ -403,5 +403,5 @@
 }
 
 .PT-review-col {
-  width: 0%; /* Increased from 18% */
+  display: none !important; /* Fully hidden */
 }
