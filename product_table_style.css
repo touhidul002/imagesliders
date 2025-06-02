@@ -333,19 +333,20 @@ td.PT-review-col {
 
 /* Desktop column widths (redistributed without review column) */
 .PT-preview-col {
-  width: 20% !important; /* Increased from 15% */
+  width: 20% !important;
 }
 
 .PT-product-name-col {
-  width: 35% !important; /* Increased from 30% */
+  width: 35% !important;
 }
 
 .PT-best-for-col {
-  width: 20% !important; /* Increased from 15% */
+  width: 20% !important;
 }
 
 .PT-price-col {
-  width: 25% !important; /* Increased from 20% */
+  width: 25% !important;
+  display: table-cell !important; /* Ensure it's always visible */
 }
 
 /* ===== Responsive Design ===== */
@@ -354,30 +355,37 @@ td.PT-review-col {
 @media (max-width: 720px) {
   /* Mobile column width settings (redistributed without review column) */
   .PT-preview-col {
-    width: 25% !important; /* Increased from 22% */
+    width: 22% !important;
   }
 
   .PT-product-name-col {
-    width: 40% !important; /* Increased from 33% */
+    width: 33% !important;
   }
 
   .PT-best-for-col {
-    width: 35% !important; /* Increased from 22% */
+    width: 22% !important;
   }
 
   .PT-price-col {
-    width: 0% !important; /* Hide price column on mobile to make room */
-    display: none !important;
+    width: 23% !important; /* Keep price column visible on mobile */
+    display: table-cell !important; /* Make sure it's visible */
   }
 
+  /* COMPLETELY HIDE PT-review-col for mobile - Nuclear approach */
   .PT-review-col,
   th.PT-review-col,
   td.PT-review-col,
   .PT-product-comparison-table th:nth-child(5),
   .PT-product-comparison-table td:nth-child(5),
+  .PT-product-comparison-table th:nth-child(6),
+  .PT-product-comparison-table td:nth-child(6),
+  .PT-product-comparison-table th:nth-child(7),
+  .PT-product-comparison-table td:nth-child(7),
   .PT-product-comparison-table th:last-child,
-  .PT-product-comparison-table td:last-child {
-    display: none !important; /* Review column - mobile, fully hidden */
+  .PT-product-comparison-table td:last-child,
+  .PT-product-comparison-table th:nth-child(n+5),
+  .PT-product-comparison-table td:nth-child(n+5) {
+    display: none !important;
     width: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
