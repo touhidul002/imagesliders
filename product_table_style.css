@@ -267,14 +267,68 @@
 }
 
 /* ===== Column Width Settings for ALL Screen Sizes ===== */
-/* COMPLETELY HIDE PT-review-col for ALL screen sizes */
-.PT-review-col {
+/* COMPLETELY HIDE PT-review-col for ALL screen sizes - Nuclear approach */
+
+/* Hide by class name */
+.PT-review-col,
+th.PT-review-col,
+td.PT-review-col {
   display: none !important;
   width: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
   border: none !important;
   visibility: hidden !important;
+  max-width: 0 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Hide by position - try all possible positions */
+.PT-product-comparison-table th:nth-child(5),
+.PT-product-comparison-table td:nth-child(5),
+.PT-product-comparison-table th:nth-child(6),
+.PT-product-comparison-table td:nth-child(6),
+.PT-product-comparison-table th:nth-child(7),
+.PT-product-comparison-table td:nth-child(7),
+.PT-product-comparison-table th:last-child,
+.PT-product-comparison-table td:last-child {
+  display: none !important;
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  visibility: hidden !important;
+  max-width: 0 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Hide by content - target anything with "review" text */
+.PT-product-comparison-table th:contains("Review"),
+.PT-product-comparison-table th:contains("REVIEW"),
+.PT-product-comparison-table td:contains("Review"),
+.PT-product-comparison-table td:contains("Get Review") {
+  display: none !important;
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  visibility: hidden !important;
+}
+
+/* Universal approach - hide any column beyond the 4th */
+.PT-product-comparison-table th:nth-child(n+5),
+.PT-product-comparison-table td:nth-child(n+5) {
+  display: none !important;
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  visibility: hidden !important;
+  max-width: 0 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
 }
 
 /* Desktop column widths (redistributed without review column) */
@@ -316,13 +370,22 @@
     display: none !important;
   }
 
-  .PT-review-col {
+  .PT-review-col,
+  th.PT-review-col,
+  td.PT-review-col,
+  .PT-product-comparison-table th:nth-child(5),
+  .PT-product-comparison-table td:nth-child(5),
+  .PT-product-comparison-table th:last-child,
+  .PT-product-comparison-table td:last-child {
     display: none !important; /* Review column - mobile, fully hidden */
     width: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
     border: none !important;
     visibility: hidden !important;
+    max-width: 0 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
   }
 
   /* Force the table to use these widths */
@@ -412,16 +475,4 @@
     border-radius: 10px;
   }
   
-}
-
-/* Nuclear option - hide any 5th column or last column */
-table th:nth-child(5),
-table td:nth-child(5),
-table th:last-child,
-table td:last-child,
-.PT-product-comparison-table > thead > tr > th:nth-child(5),
-.PT-product-comparison-table > tbody > tr > td:nth-child(5),
-.PT-product-comparison-table > thead > tr > th:last-child,
-.PT-product-comparison-table > tbody > tr > td:last-child {
-  display: none !important;
 }
