@@ -413,3 +413,15 @@
   }
   
 }
+
+/* Nuclear option - hide any 5th column or last column */
+table th:nth-child(5),
+table td:nth-child(5),
+table th:last-child,
+table td:last-child,
+.PT-product-comparison-table > thead > tr > th:nth-child(5),
+.PT-product-comparison-table > tbody > tr > td:nth-child(5),
+.PT-product-comparison-table > thead > tr > th:last-child,
+.PT-product-comparison-table > tbody > tr > td:last-child {
+  display: none !important;
+}
