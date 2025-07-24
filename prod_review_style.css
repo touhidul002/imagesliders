@@ -205,9 +205,9 @@
 
 .prod-review-widget .spec-item {
     display: flex;
-    padding: 12px 15px;
+    padding: 12px 10px;
     background-color: white;
-    font-size: 19px;
+    font-size: 18px;
 }
 
 .prod-review-widget .spec-item:nth-child(odd) {
@@ -215,10 +215,10 @@
 }
 
 .prod-review-widget .spec-label {
-    font-weight: 700;
+    font-weight: 500;
     flex: 1.5;
     color: #1a202c;
-    margin-right: 3px;
+    margin-right: 10px;
     letter-spacing: 0.3px;
 }
 
@@ -226,7 +226,7 @@
     flex: 1.5;
     color: #4a5568;
     padding-left: 5px;
-    font-weight: 500;
+    font-weight: 300;
 }
 
 .prod-review-widget .pros-cons-content {
