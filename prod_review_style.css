@@ -46,17 +46,19 @@
 }
 
 .prod-review-widget .review-card {
+    width: 100%;
     max-width: 1000px;
     border-radius: 10px;
     overflow: hidden;
     margin: 10px auto;
     background-color: white;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
 }
 
 .prod-review-widget .review-header {
-    margin: 20px;
+    width: calc(100% - 40px);
+    max-width: 960px;
+    margin: 20px auto;
     border: 2px solid #047c22;
     background-color: #ffffff;
     padding: 10px; /* Add padding for better spacing */
@@ -131,8 +133,13 @@
     }
 }
 .prod-review-widget .content-wrapper {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     padding: 5px 5px;
     gap: 5px;
 }
@@ -140,11 +147,21 @@
 @media (max-width: 768px) {
     .prod-review-widget .content-wrapper {
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .prod-review-widget .image-container,
+    .prod-review-widget .details-container {
+        width: 100%;
     }
 }
 
 .prod-review-widget .image-container {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
@@ -165,6 +182,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .prod-review-widget .cta-button {
@@ -210,7 +228,9 @@
 }
 
 .prod-review-widget .specs-container {
-    margin: 10px 20px;
+    width: calc(100% - 40px);
+    max-width: 420px;
+    margin: 10px auto;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid var(--border-color);
@@ -243,18 +263,23 @@
 }
 
 .prod-review-widget .pros-cons-content {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
     padding: 5px 30px 15px;
 }
 
 .prod-review-widget .pros-cons {
     display: flex;
-    margin: 5px 0;
+    justify-content: center;
+    margin: 5px auto;
     gap: 25px;
 }
 
 @media (max-width: 768px) {
     .prod-review-widget .pros-cons {
         flex-direction: column;
+        align-items: stretch;
     }
 }
 
@@ -323,6 +348,9 @@
 }
 
 .prod-review-widget .review-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
     background-color: #ffffffe8;
     padding: 5px 10px;
     border-top: 1px solid var(--border-color);
@@ -384,10 +412,12 @@
 }
 /* Custom gallery styles to match the page theme */
 .prod-review-widget .gallery-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 10px;
     padding: 5px;
     background-color: white;
     border-top: 1px solid var(--border-color);
-    margin-bottom: 10px;
 }
 
 .prod-review-widget .gallery-title {
@@ -492,6 +522,9 @@
 
 /* Amazon Button Styles */
 .prod-review-widget .amazon-button-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
     text-align: center;
     padding: 10px 10px;
     background-color: white;
